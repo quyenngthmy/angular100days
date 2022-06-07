@@ -252,5 +252,9 @@ export class AppComponent {
     }
   ];
   tags = ['Angular', 'Typescript', '100days'];
-};
+
+  // Class & Style binding
+  isDanger = false;
+  isWarning = false;
+}
 
