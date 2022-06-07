@@ -1,0 +1,55 @@
+{{name}}
+
+<hello name="{{ name }}"></hello>
+
+<!-- String Interpolation -->
+<!-- {{ expression }} -->
+<p>{{ user.name }}</p>
+<p>{{ user.age }}</p>
+
+<!-- Property binding -->
+<input [type]="inputType" [value]="user.name" />
+<br>
+
+<!-- Event binding -->
+<button type="reset" (click)="handler()">Click me</button>
+<br>
+
+<!-- Two-way binding -->
+<input type="text" [(ngModel)]="name" (ngModelChange)="name = $event" />
+
+<!-- ngIf -->
+<hello *ngIf="user.age >= 18;else under18" [name]="user.name"></hello>
+
+<ng-template #under18> 
+  <div>
+    You are too young to see this content
+  </div>
+</ng-template>
+
+<button (click)="user.age = user.age - 1">-</button>
+Age: {{user.age}}
+<button (click)="user.age = user.age + 1">+</button>
+
+<!-- ngFor -->
+<ul>
+  <ng-container *ngIf="users.length > 0;else noUsers">
+    <li *ngFor="let u of users; index as idx; count as total; first as isFirst; last as isLast; even as isEven; odd as isOdd">
+      <span>{{u.id}} - {{u.name}} - {{u.email}}</span>
+      <br>
+      <span>at index {{idx}} out of {{total}}</span>
+      <br>
+      <span *ngIf="isEven">I am even number</span>
+      <br>
+      <span *ngIf="isOdd">I am odd number</span>
+      <br>
+      <span *ngIf="isFirst">I am the first</span>
+      <br>
+      <span *ngIf="isLast">I am the last</span>
+      <br>
+    </li>
+  </ng-container>
+  <ng-template #noUsers>No users</ng-template>
+</ul>
+
+<button *ngFor="let tag of tags; last as isLast" [class.right-margin]="!isLast">{{tag}}</button>
