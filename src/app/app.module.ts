@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { AuthorListComponent } from './authors/author-list.component';
+import { AuthorDetailsComponent } from './authors/author-details.component';
+import { ToggleComponent } from './toogle/toggle.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
+  declarations: [ AppComponent, HelloComponent, ProgressBarComponent, AuthorListComponent, AuthorDetailsComponent, ToggleComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

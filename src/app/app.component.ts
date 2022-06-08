@@ -1,4 +1,5 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, VERSION, ViewChild } from '@angular/core';
+import { ToggleComponent } from './toogle/toggle.component';
 
 @Component({
   selector: 'my-app',
@@ -256,5 +257,17 @@ export class AppComponent {
   // Class & Style binding
   isDanger = false;
   isWarning = false;
+  
+  // Input binding
+  currentProgress = 70;
+
+  // Custom two-way data binding
+  isChecked = true;
+
+  // ViewChild/ViewChildren
+  @ViewChild('toggleComp') toggleComp: ToggleComponent;
+  ngAfterViewInit() {
+
+  }
 }
 
